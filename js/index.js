@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log("linked");
 
 
   var answer = "";
@@ -9,6 +8,10 @@ $(document).ready(function() {
     answer = this.innerHTML;
     if (flagData[1] == this.innerHTML ){
       alert("correct!");
+      for (var i = 0; i < grid.length; i++) {
+        grid[i].innerHTML = "";
+      }
+      newGame();
     }
 
 
@@ -37,6 +40,12 @@ $(document).ready(function() {
     flagData = [item.link, currentFlag]
     return flagData;
   }
+  function getName(allFlags){
+    var item = allFlags[Math.floor(Math.random()*allFlags.length)];
+
+    flagName = item.name;
+    return flagName;
+  }
 
   function shuffle(a) {
     var j, x, i;
@@ -48,12 +57,13 @@ $(document).ready(function() {
     }
     return a;
   }
+
+  function newGame(){
   shuffle(allFlags);
   shuffle(grid);
 
   for (var count = 0; count < grid.length -1; count++) { //populate anwser grid
     grid[count].innerHTML = allFlags[count].name;
-    console.log(grid[count].innerHTML);
   }
 
 
@@ -62,11 +72,24 @@ getFlag(allFlags);
   mast[0].innerHTML = flagData[0];
 
 
+// var arraySet = new Set(grid)
+// console.log(arraySet);
+for (var i = 0; i < grid.length; i++) { //go through anwser array
+  if (grid[i].innerHTML == flagData[1]){
+    grid[i].innerHTML = getName(allFlags);
+  }
 
-for (var i = 0; i < grid.length; i++) {
   if (grid[i].innerHTML == ""){
     grid[i].innerHTML = flagData[1];
   }
+// console.log(flagName);
 }
+}
+// var lives = 3;
+// while (lives > 0){
+newGame();
+// lives =  lives -1;
+// console.log(lives);
+// }
 
 });
