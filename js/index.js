@@ -2,7 +2,7 @@ $(document).ready(function() {
   console.log("linked");
 
   var data = [ "UK", "Japan", "Spain", "US"];
-var answer = "";
+  var answer = "";
   var grid =  $(".answer_grid").on("click", function(event){
 
     console.log(this.innerHTML);
@@ -15,16 +15,22 @@ var answer = "";
   });
 
   var mast = $(".mast");
-  var allFlags = ['<img src="images/UK.jpg" >','<img src="images/spain.jpg" >','<img src="images/japan.jpg" >', '<img src="images/us.jpg" >'];
-
-  var allFlags2 = [ ['<img src="images/UK.jpg" >', "UK"],
-                    ['<img src="images/spain.jpg" >',"Spain" ],
-                    ['<img src="images/japan.jpg" >' ,"Japan"],
-                    ['<img src="images/us.jpg" >', "US"] ]
 
 
-  function getFlag(allFlags2){
-    var item = allFlags2[Math.floor(Math.random()*allFlags.length)];
+  var allFlags = [ {link :'<img src="images/UK.jpg" >',
+                    name: "UK"},
+                    { link:'<img src="images/spain.jpg" >',
+                    name : "Spain" },
+                    {link: '<img src="images/japan.jpg" >' ,
+                    name: "Japan"},
+                    {link:'<img src="images/us.jpg" >',
+                    name: "US"} ];
+
+
+
+
+  function getFlag(allFlags){
+    var item = allFlags[Math.floor(Math.random()*allFlags.length)].link;
     // var newFlag = item //'<img src="images/UK.jpg" >';
     // return newFlag;
     return item;
@@ -43,7 +49,7 @@ var answer = "";
   shuffle(grid);
 
   for (var i = 0; i < grid.length; i++) {
-    grid[i].innerHTML = data[i];
+    grid[i].innerHTML = allFlags[i].name;
   }
 
   mast[0].innerHTML = getFlag(allFlags);
