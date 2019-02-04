@@ -29,13 +29,22 @@ $(document).ready(function() {
 
   var allFlags = [
 
-  {link :'<img src="images/UK.jpg" >', name: "UK"},
-  {link:'<img src="images/spain.jpg" >', name : "Spain" },
-  {link: '<img src="images/japan.jpg" >' ,name: "Japan"},
-  {link:'<img src="images/us.jpg" >', name: "US"},
-  {link:'<img src="images/france.jpg" >', name : "France"},
-  {link:'<img src="images/jamaica.jpg" >', name : "Jamaica"},
-  {link:'<img src="images/nigeria.jpg" >', name : "Nigeria"}
+  {link:'<img src="images/UK.jpg" >',         name: "UK"},
+  {link:'<img src="images/spain.jpg" >',       name: "Spain" },
+  {link:'<img src="images/japan.jpg" >',      name: "Japan"},
+  {link:'<img src="images/us.jpg" >',          name: "US"},
+  {link:'<img src="images/france.jpg" >',      name: "France"},
+  {link:'<img src="images/jamaica.jpg" >',     name: "Jamaica"},
+  {link:'<img src="images/nigeria.jpg" >',     name: "Nigeria"},
+  {link:'<img src="images/afghanistan.jpg" >', name: "Afghanistan"},
+  {link:'<img src="images/Angola.jpg" >',      name: "Angola"},
+  {link:'<img src="images/Antigua.jpg" >',     name: "Antigua"},
+  {link:'<img src="images/argentina.jpg" >',   name: "Argentina"},
+  {link:'<img src="images/Armenia.jpg" >',     name: "Armenia"},
+  {link:'<img src="images/Australia.jpg" >',   name: "Australia"},
+  {link:'<img src="images/Austria.jpg" >',     name: "Austria"},
+  {link:'<img src="images/Azerbaijan.jpg" >',  name: "Azerbaijan"},
+
 
   ];
 
