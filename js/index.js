@@ -3,15 +3,16 @@ $(document).ready(function() {
 
   var data = [ "UK", "Japan", "Spain", "US"];
   var answer = "";
+  var currentFlag = "";
   var grid =  $(".answer_grid").on("click", function(event){
 
-    console.log(this.innerHTML);
+    // console.log(this.innerHTML);
     answer = this.innerHTML;
-    console.log("anwser:", answer);
-    if (answer == "UK"){
-      alert("progress");
+    if (flagData[1] == this.innerHTML ){
+      alert("correct!");
     }
-    return answer;
+
+
   });
 
   var mast = $(".mast");
@@ -30,10 +31,10 @@ $(document).ready(function() {
 
 
   function getFlag(allFlags){
-    var item = allFlags[Math.floor(Math.random()*allFlags.length)].link;
-    // var newFlag = item //'<img src="images/UK.jpg" >';
-    // return newFlag;
-    return item;
+    var item = allFlags[Math.floor(Math.random()*allFlags.length)];
+    currentFlag = item.name;
+    flagData = [item.link, currentFlag]
+    return flagData;
   }
 
   function shuffle(a) {
@@ -48,11 +49,15 @@ $(document).ready(function() {
   }
   shuffle(grid);
 
-  for (var i = 0; i < grid.length; i++) {
-    grid[i].innerHTML = allFlags[i].name;
+  for (var count = 0; count < grid.length; count++) {
+    grid[count].innerHTML = allFlags[count].name;
   }
+getFlag(allFlags);
+  mast[0].innerHTML = flagData[0];
 
-  mast[0].innerHTML = getFlag(allFlags);
+
+
+  console.log(flagData[1]);
 
 
 });
