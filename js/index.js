@@ -27,26 +27,43 @@ $(document).ready(function() {
   var mast = $(".mast");
   var lives = 3;
 
-  var allFlags = [
+function Flag (link, name){
+  this.link = link,
+  this.name = name,
+}
+let france = new Flag('<img src="images/france.jpg" >', "France");
+//console.log(france.name);
 
-  {link:'<img src="images/UK.jpg" >',         name: "UK"},
-  {link:'<img src="images/spain.jpg" >',       name: "Spain" },
-  {link:'<img src="images/japan.jpg" >',      name: "Japan"},
-  {link:'<img src="images/us.jpg" >',          name: "US"},
-  {link:'<img src="images/france.jpg" >',      name: "France"},
-  {link:'<img src="images/jamaica.jpg" >',     name: "Jamaica"},
-  {link:'<img src="images/nigeria.jpg" >',     name: "Nigeria"},
-  {link:'<img src="images/afghanistan.jpg" >', name: "Afghanistan"},
-  {link:'<img src="images/Angola.jpg" >',      name: "Angola"},
-  {link:'<img src="images/Antigua.jpg" >',     name: "Antigua"},
-  {link:'<img src="images/argentina.jpg" >',   name: "Argentina"},
-  {link:'<img src="images/Armenia.jpg" >',     name: "Armenia"},
-  {link:'<img src="images/Australia.jpg" >',   name: "Australia"},
-  {link:'<img src="images/Austria.jpg" >',     name: "Austria"},
-  {link:'<img src="images/Azerbaijan.jpg" >',  name: "Azerbaijan"},
+let uk = new Flag('<img src="images/UK.jpg" >', "UK");
 
+let spain = new Flag('<img src="images/spain.jpg" >', "Spain");
 
-  ];
+let japan = new Flag('<img src="images/japan.jpg" >', "Japan");
+var allFlags = [uk, spain, japan, france];
+japan.shout;
+for (var i = 0; i < allFlags.length; i++) {
+  console.log(allFlags[i].name);
+}
+  // var allFlags = [
+  //
+  // {link:'<img src="images/UK.jpg" >',         name: "UK"},
+  // {link:'<img src="images/spain.jpg" >',       name: "Spain" },
+  // {link:'<img src="images/japan.jpg" >',      name: "Japan"},
+  // {link:'<img src="images/us.jpg" >',          name: "US"},
+  // {link:'<img src="images/france.jpg" >',      name: "France"},
+  // {link:'<img src="images/jamaica.jpg" >',     name: "Jamaica"},
+  // {link:'<img src="images/nigeria.jpg" >',     name: "Nigeria"},
+  // {link:'<img src="images/afghanistan.jpg" >', name: "Afghanistan"},
+  // {link:'<img src="images/Angola.jpg" >',      name: "Angola"},
+  // {link:'<img src="images/Antigua.jpg" >',     name: "Antigua"},
+  // {link:'<img src="images/argentina.jpg" >',   name: "Argentina"},
+  // {link:'<img src="images/Armenia.jpg" >',     name: "Armenia"},
+  // {link:'<img src="images/Australia.jpg" >',   name: "Australia"},
+  // {link:'<img src="images/Austria.jpg" >',     name: "Austria"},
+  // {link:'<img src="images/Azerbaijan.jpg" >',  name: "Azerbaijan"},
+  //
+  //
+  // ];
 
 
   function getFlag(allFlags){
