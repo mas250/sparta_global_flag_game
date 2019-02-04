@@ -13,11 +13,24 @@ $(document).ready(function() {
       }
       newGame();
     }
+    else{
+      lives = lives - 1;
+      alert("wrong!");
+      for (var i = 0; i < grid.length; i++) {
+        grid[i].innerHTML = "";
+      }
+      if( lives != 0){
+
+      newGame();
+    }
+
+
+    }
 
 
   });
   var mast = $(".mast");
-
+var lives = 3;
 
   var allFlags = [ {link :'<img src="images/UK.jpg" >',
                     name: "UK"},
@@ -59,6 +72,7 @@ $(document).ready(function() {
   }
 
   function newGame(){
+    console.log(lives);
   shuffle(allFlags);
   shuffle(grid);
 
@@ -85,11 +99,8 @@ for (var i = 0; i < grid.length; i++) { //go through anwser array
 // console.log(flagName);
 }
 }
-// var lives = 3;
-// while (lives > 0){
+
 newGame();
-// lives =  lives -1;
-// console.log(lives);
-// }
+
 
 });
