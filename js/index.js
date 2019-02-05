@@ -30,19 +30,24 @@ $(document).ready(function() {
 function Flag (link, name){
   this.link = link,
   this.name = name,
+  this.flagLink = function(){ return this.link}
+  this.flagName = function(){ return this.name};
 }
 let france = new Flag('<img src="images/france.jpg" >', "France");
-//console.log(france.name);
+ // console.log(france);
 
 let uk = new Flag('<img src="images/UK.jpg" >', "UK");
 
 let spain = new Flag('<img src="images/spain.jpg" >', "Spain");
 
 let japan = new Flag('<img src="images/japan.jpg" >', "Japan");
-var allFlags = [uk, spain, japan, france];
-japan.shout;
+
+let us = new Flag('<img src="images/us.jpg" >',"US" )
+var allFlags = [uk, spain, japan, france, us];
+
 for (var i = 0; i < allFlags.length; i++) {
-  console.log(allFlags[i].name);
+  // console.log(allFlags[i].flagName());
+  // console.log(allFlags[i].shout());
 }
   // var allFlags = [
   //
@@ -65,21 +70,16 @@ for (var i = 0; i < allFlags.length; i++) {
   //
   // ];
 
-
   function getFlag(allFlags){
     //choose and return random flag object
     var item = allFlags[Math.floor(Math.random()*allFlags.length)];
-    currentFlag = item.name;
-    flagData = [item.link, currentFlag]
+    // currentFlag = item.name;
+    flagData = [item.flagLink(), item.flagName()];
     return flagData;
   }
 
-  function getName(allFlags){
-    //choose and return just the name data from a flag object
-    var item = allFlags[Math.floor(Math.random()*allFlags.length)];
-    flagName = item.name;
-    return flagName;
-  }
+
+
 
   function shuffle(a) {
     //return a shuffled array
@@ -115,18 +115,30 @@ for (var i = 0; i < allFlags.length; i++) {
     getFlag(allFlags);
 
     mast[0].innerHTML = flagData[0];
-
+    // mast[0].innerHTML = flagData[0];
 
     for (var i = 0; i < grid.length; i++) { //go through anwser array
-      if (grid[i].innerHTML == flagData[1]){
-        grid[i].innerHTML = getName(allFlags);
-      }
 
       if (grid[i].innerHTML == ""){
         grid[i].innerHTML = flagData[1];
+        console.log(grid[i]);
+        // grid[i].innerHTML = grid[i].flagName().innerHTML;
       }
-      // console.log(flagName);
+
     }
+    // var myArray = [2,3,4,4];
+
+console.log(grid.length);
+    for(var i = 0; i <= grid.length; i++) {
+          for(var j = i; j <= grid.length; j++) {
+
+              if(i != j && grid[i] == grid[j]) {
+
+                  // console.log(grid[i]);
+              }
+          }
+      }
+
   }
 
   newGame();
