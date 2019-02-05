@@ -15,3 +15,7 @@ td {
   text-align: center;
   font-size: 4em;
 }
+
+td.answer_grid:hover{
+	background-color: powderblue;
+}

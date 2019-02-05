@@ -22,6 +22,11 @@ $(document).ready(function() {
       }
       //else condition
       //all lives lost: clear screen and display loosing message
+      else{
+      alert("you lose!")
+      window.location= "intro.html"
+      }
+      //
     }
   });
   var mast = $(".mast");
@@ -116,7 +121,12 @@ var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, ang
         grid[i].innerHTML = flagData[1];
 
       }
+      // if (grid[i].innerHTML == flagData[1]){
+      //   grid[i].innerHTML = "yo";
+      //
+      // }
     }
+
   }
 
   function hardGame(){
@@ -133,14 +143,10 @@ var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, ang
 
     mast[0].innerHTML = flagData[1];
 
-    for (var i = 0; i < grid.length; i++) { //go through anwser array
 
-      if (grid[i].innerHTML == ""){
-        grid[i].innerHTML = flagData[0];
-
-      }
-    }
   }
+
+
 newGame()
   // hardGame();
 
