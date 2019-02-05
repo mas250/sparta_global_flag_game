@@ -33,8 +33,8 @@ function Flag (link, name){
   this.flagLink = function(){ return this.link}
   this.flagName = function(){ return this.name};
 }
+
 let france = new Flag('<img src="images/france.jpg" >', "France");
- // console.log(france);
 
 let uk = new Flag('<img src="images/UK.jpg" >', "UK");
 
@@ -42,33 +42,30 @@ let spain = new Flag('<img src="images/spain.jpg" >', "Spain");
 
 let japan = new Flag('<img src="images/japan.jpg" >', "Japan");
 
-let us = new Flag('<img src="images/us.jpg" >',"US" )
-var allFlags = [uk, spain, japan, france, us];
+let us = new Flag('<img src="images/us.jpg" >',"US" );
 
-for (var i = 0; i < allFlags.length; i++) {
-  // console.log(allFlags[i].flagName());
-  // console.log(allFlags[i].shout());
-}
-  // var allFlags = [
-  //
-  // {link:'<img src="images/UK.jpg" >',         name: "UK"},
-  // {link:'<img src="images/spain.jpg" >',       name: "Spain" },
-  // {link:'<img src="images/japan.jpg" >',      name: "Japan"},
-  // {link:'<img src="images/us.jpg" >',          name: "US"},
-  // {link:'<img src="images/france.jpg" >',      name: "France"},
-  // {link:'<img src="images/jamaica.jpg" >',     name: "Jamaica"},
-  // {link:'<img src="images/nigeria.jpg" >',     name: "Nigeria"},
-  // {link:'<img src="images/afghanistan.jpg" >', name: "Afghanistan"},
-  // {link:'<img src="images/Angola.jpg" >',      name: "Angola"},
-  // {link:'<img src="images/Antigua.jpg" >',     name: "Antigua"},
-  // {link:'<img src="images/argentina.jpg" >',   name: "Argentina"},
-  // {link:'<img src="images/Armenia.jpg" >',     name: "Armenia"},
-  // {link:'<img src="images/Australia.jpg" >',   name: "Australia"},
-  // {link:'<img src="images/Austria.jpg" >',     name: "Austria"},
-  // {link:'<img src="images/Azerbaijan.jpg" >',  name: "Azerbaijan"},
-  //
-  //
-  // ];
+let jamaica = new Flag('<img src="images/Jamaica.jpg" >',"Jamaica" );
+
+let nigeria = new Flag('<img src="images/nigeria.jpg" >',"Nigeria" );
+
+let afghanistan = new Flag('<img src="images/afghanistan.jpg" >',"Afghanistan" );
+
+let angola = new Flag('<img src="images/Angola.jpg" >',"Angola" );
+
+let antigua = new Flag('<img src="images/Antigua.jpg" >',"Antigua" );
+
+let argentina = new Flag('<img src="images/Argentina.jpg" >',"Argentina" );
+
+let armenia = new Flag('<img src="images/Armenia.jpg" >',"Armenia" );
+
+let australia = new Flag('<img src="images/Australia.jpg" >',"Australia" );
+
+let austria = new Flag('<img src="images/Austria.jpg" >',"Austria" );
+
+let azerbaijan = new Flag('<img src="images/Azerbaijan.jpg" >',"Azerbaijan" );
+
+var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, angola, antigua, argentina, armenia, australia, austria, azerbaijan];
+
 
   function getFlag(allFlags){
     //choose and return random flag object
@@ -77,8 +74,6 @@ for (var i = 0; i < allFlags.length; i++) {
     flagData = [item.flagLink(), item.flagName()];
     return flagData;
   }
-
-
 
 
   function shuffle(a) {
@@ -103,7 +98,7 @@ for (var i = 0; i < allFlags.length; i++) {
 
   function newGame(){
     //this function is called whenever a new question or turn should take place
-    console.log(lives);
+    // console.log(lives);
     shuffle(allFlags);
     shuffle(grid);
 
@@ -111,37 +106,43 @@ for (var i = 0; i < allFlags.length; i++) {
       grid[count].innerHTML = allFlags[count].name;
     }
 
-
     getFlag(allFlags);
 
     mast[0].innerHTML = flagData[0];
-    // mast[0].innerHTML = flagData[0];
 
     for (var i = 0; i < grid.length; i++) { //go through anwser array
 
       if (grid[i].innerHTML == ""){
         grid[i].innerHTML = flagData[1];
-        console.log(grid[i]);
-        // grid[i].innerHTML = grid[i].flagName().innerHTML;
-      }
 
+      }
     }
-    // var myArray = [2,3,4,4];
-
-console.log(grid.length);
-    for(var i = 0; i <= grid.length; i++) {
-          for(var j = i; j <= grid.length; j++) {
-
-              if(i != j && grid[i] == grid[j]) {
-
-                  // console.log(grid[i]);
-              }
-          }
-      }
-
   }
 
-  newGame();
+  function hardGame(){
+    //this function is called whenever a new question or turn should take place
+    // console.log(lives);
+    shuffle(allFlags);
+    shuffle(grid);
+
+    for (var count = 0; count < grid.length -1; count++) { //populate anwser grid
+      grid[count].innerHTML = allFlags[count].flagLink();
+    }
+
+    getFlag(allFlags);
+
+    mast[0].innerHTML = flagData[1];
+
+    for (var i = 0; i < grid.length; i++) { //go through anwser array
+
+      if (grid[i].innerHTML == ""){
+        grid[i].innerHTML = flagData[0];
+
+      }
+    }
+  }
+newGame()
+  // hardGame();
 
 
 });
