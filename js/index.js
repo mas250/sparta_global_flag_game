@@ -1,8 +1,14 @@
 $(document).ready(function() {
+
+
   var answer = "";
   var currentFlag = "";
   var score = "0";
   var timeLeft = 30;
+  var wrongSound = new Audio("./sounds/wrong.mp3");
+  var newGameSound = new Audio("./sounds/start.mp3");
+
+
   var gameTime = setInterval(function(){
     document.getElementById("progressBar").value = 30 - timeLeft;
     timeLeft -= 1;
@@ -25,7 +31,8 @@ $(document).ready(function() {
     answer = this.innerHTML;  //clicking on the table submits it as an anwser
     if (flagData[1] == this.innerHTML ){
       //logic for correct anwser
-      alert("correct!");
+      // alert("correct!");
+      newGameSound.play();
       score = eval(score + 1);
       $(".score").text("score = " + score);
       clearGrid();
@@ -35,6 +42,7 @@ $(document).ready(function() {
     else {
       //logic for incorrect anwser
       lives = lives - 1;
+      wrongSound.play();
       alert("wrong!");
       clearGrid();
       if( lives == 0){
@@ -152,6 +160,7 @@ var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, ang
   function newGame(){
     //this function is called whenever a new question or turn should take place
     // console.log(lives);
+    newGameSound.play();
     shuffle(allFlags);
     shuffle(grid);
 

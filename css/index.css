@@ -19,3 +19,7 @@ td {
 td.answer_grid:hover{
 	background-color: powderblue;
 }
+
+body{
+	/* background: linear-gradient(grey, powderblue); */
+}
