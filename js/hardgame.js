@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  // console.log("1");
+
   var answer = "";
   var currentFlag = "";
   var hardGrid = [];
@@ -26,15 +26,10 @@ $(document).ready(function() {
   }, 1000);
 
   var grid =  $(".answer_grid").on("click", function(event){ //create  anwser grid and listen for events
-    // answer = this.innerHTML;  //clicking on the table submits it as an anwser
 
     if (this.innerHTML == answer ){
-
-      // if (hardGrid.includes(this.innerHTML)){
-      // if (flagData[0].contains(this.innerHTML) ){
-
       //logic for correct anwser
-      // alert("correct!");
+
       newGameSound.play();
       score = eval(score + 1);
       $(".score").text("score = " + score);
@@ -47,20 +42,15 @@ $(document).ready(function() {
       //logic for incorrect anwser
       lives = lives - 1;
       wrongSound.play();
-      // alert("wrong!");
       clearGrid();
       if( lives != 0){
-
         hardGame();
       }
-      //else condition
-      //all lives lost: clear screen and display loosing message
       else{
         alert("Game Over!")
         alert("you scored: " + score + " points!");
         window.location= "intro.html";
       }
-      //
     }
   });
 
@@ -73,6 +63,7 @@ function Flag (link, name){
   this.flagLink = function(){ return this.link}
   this.flagName = function(){ return this.name};
 }
+
 
 let france = new Flag('<img src="images/france.jpg">', "France");
 
@@ -126,15 +117,36 @@ let bolivia = new Flag('<img src="images/bolivia.jpg">',"Bolivia" );
 
 let bosnia = new Flag('<img src="images/bosnia.jpg">',"Bosnia" );
 
-// let  = new Flag('<img src="images/belize.jpg">',"Belize" );
+let botswana = new Flag('<img src="images/botswana.jpg">',"Botswana" );
 
-var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, angola, antigua, argentina, armenia, australia, austria, azerbaijan, bahamas, bahrain, bangladesh, barbados, belarus, belgium, belize, benin, bhutan, bolivia, bosnia];
+let brazil = new Flag('<img src="images/brazil.jpg">',"Brazil" );
+
+let brunei = new Flag('<img src="images/brunei.jpg">',"Brunei" );
+
+let bulgaria = new Flag('<img src="images/bulgaria.jpg">',"Bulgaria" );
+
+let burkina_faso = new Flag('<img src="images/burkina_faso.jpg">',"Burkina Faso" );
+
+let burma = new Flag('<img src="images/burma.jpg">',"Burma" );
+
+let cambodia = new Flag('<img src="images/cambodia.jpg">',"Cambodia" );
+
+let cameroon = new Flag('<img src="images/cameroon.jpg">',"Cameroon" );
+
+let canada = new Flag('<img src="images/canada.jpg">',"Canada" );
+
+let cape_verde = new Flag('<img src="images/cape_verde.jpg">',"Cape Verde" );
+
+let central_african_republic = new Flag('<img src="images/central_african_republic.jpg">',"Central African Republic" );
+
+let chad = new Flag('<img src="images/chad.jpg">',"Chad" );
+
+var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, angola, antigua, argentina, armenia, australia, austria, azerbaijan, bahamas, bahrain, bangladesh, barbados, belarus, belgium, belize, benin, bhutan, bolivia, bosnia, botswana, brazil, brunei, bulgaria, burkina_faso, burma, cambodia, cameroon, canada, cape_verde, central_african_republic, chad];
 
 
   function getFlag(allFlags){
     //choose and return random flag object
     var item = allFlags[Math.floor(Math.random()*allFlags.length)];
-    // currentFlag = item.name;
     flagData = [item.flagLink(), item.flagName()];
     return flagData;
   }
@@ -150,7 +162,6 @@ var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, ang
       a[random_element] = x;
     }
     return a;
-
   }
 
   function clearGrid(){
@@ -160,37 +171,8 @@ var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, ang
     }
   }
 
-  // function newGame(){
-  //   //this function is called whenever a new question or turn should take place
-  //   // console.log(lives);
-  //   shuffle(allFlags);
-  //   shuffle(grid);
-  //
-  //   for (var count = 0; count < grid.length -1; count++) { //populate anwser grid
-  //     grid[count].innerHTML = allFlags[count].name;
-  //   }
-  //
-  //   getFlag(allFlags);
-  //
-  //   mast[0].innerHTML = flagData[0];
-  //
-  //   for (var i = 0; i < grid.length; i++) { //go through anwser array
-  //
-  //     if (grid[i].innerHTML == ""){
-  //       grid[i].innerHTML = flagData[1];
-  //
-  //     }
-  //     // if (grid[i].innerHTML == flagData[1]){
-  //     //   grid[i].innerHTML = "yo";
-  //     //
-  //     // }
-  //   }
-  //
-  // }
-
   function hardGame(){
     //this function is called whenever a new question or turn should take place
-    // console.log(lives);
     $(".lives").text("lives:" + lives);
     $(".score").text("score = " + score);
     shuffle(allFlags);
@@ -200,33 +182,18 @@ var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, ang
       grid[count].innerHTML = allFlags[count].flagLink();
       hardGrid.push(allFlags[count].flagName());
     }
-    // console.log(answer_grid);
     getFlag(allFlags);
 
     mast[0].innerHTML = flagData[1];
     answer = flagData[0];
-    // hardGrid.push(mast[0].innerHTML)
-    // mast[1].innerHTML = flagData[1];
-    for (var i = 0; i < grid.length; i++) { //go through anwser array
 
+    for (var i = 0; i < grid.length; i++) { //go through anwser array
        if (grid[i].innerHTML == ""){
          grid[i].innerHTML = flagData[0];
-
        }
  }
- // console.log(mast[0].innerHTML);
- //
- // var a = grid[0].innerHTML;
- // console.log(a);
- // if (a.includes(mast[0].innerHTML)){
- //   console.log("yes");
- // }
-// console.log(hardGrid);
-console.log(answer);
+
+
   }
-
-
   hardGame();
-
-
 });
