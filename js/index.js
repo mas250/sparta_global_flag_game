@@ -42,8 +42,9 @@ $(document).ready(function() {
     else {
       //logic for incorrect anwser
       lives = lives - 1;
+      $(".lives").text(lives);
       wrongSound.play();
-      alert("wrong!");
+      // alert("wrong!");
       clearGrid();
       if( lives == 0){
         alert("Game Over!");
@@ -160,7 +161,8 @@ var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, ang
   function newGame(){
     //this function is called whenever a new question or turn should take place
     // console.log(lives);
-    newGameSound.play();
+    $(".lives").text("lives:" + lives);
+    $(".score").text("score = " + score);
     shuffle(allFlags);
     shuffle(grid);
 

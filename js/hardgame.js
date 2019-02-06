@@ -191,6 +191,8 @@ var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, ang
   function hardGame(){
     //this function is called whenever a new question or turn should take place
     // console.log(lives);
+    $(".lives").text("lives:" + lives);
+    $(".score").text("score = " + score);
     shuffle(allFlags);
     shuffle(grid);
 
