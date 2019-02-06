@@ -3,6 +3,7 @@ $(document).ready(function() {
   var answer = "";
   var currentFlag = "";
   var hardGrid = [];
+  var score = "0";
   var grid =  $(".answer_grid").on("click", function(event){ //create  anwser grid and listen for events
     // answer = this.innerHTML;  //clicking on the table submits it as an anwser
 
@@ -13,6 +14,8 @@ $(document).ready(function() {
 
       //logic for correct anwser
       alert("correct!");
+      score = eval(score + 1);
+      $(".score").text("score = " + score);
       clearGrid();
       hardGrid = []
       hardGame();
@@ -22,8 +25,6 @@ $(document).ready(function() {
       //logic for incorrect anwser
       lives = lives - 1;
       alert("wrong!");
-      console.log(this.innerHTML);
-      console.log(answer);
       clearGrid();
       if( lives != 0){
 
@@ -99,7 +100,7 @@ let bhutan = new Flag('<img src="images/bhutan.jpg">',"Bhutan" );
 
 let bolivia = new Flag('<img src="images/bolivia.jpg">',"Bolivia" );
 
-let bosnia = new Flag('<img src="images/bosnia.jpg">',"bosnia" );
+let bosnia = new Flag('<img src="images/bosnia.jpg">',"Bosnia" );
 
 // let  = new Flag('<img src="images/belize.jpg">',"Belize" );
 

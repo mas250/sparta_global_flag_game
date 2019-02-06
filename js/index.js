@@ -1,12 +1,16 @@
 $(document).ready(function() {
   var answer = "";
   var currentFlag = "";
+  var score = "0";
+
   var grid =  $(".answer_grid").on("click", function(event){ //create  anwser grid and listen for events
 
     answer = this.innerHTML;  //clicking on the table submits it as an anwser
     if (flagData[1] == this.innerHTML ){
       //logic for correct anwser
       alert("correct!");
+      score = eval(score + 1);
+      $(".score").text("score = " + score);
       clearGrid();
       newGame();
     }
@@ -32,6 +36,8 @@ $(document).ready(function() {
   var mast = $(".mast");
   var lives = 3;
 
+
+
 function Flag (link, name){
   this.link = link,
   this.name = name,
@@ -39,37 +45,61 @@ function Flag (link, name){
   this.flagName = function(){ return this.name};
 }
 
-let france = new Flag('<img src="images/france.jpg" >', "France");
+let france = new Flag('<img src="images/france.jpg">', "France");
 
-let uk = new Flag('<img src="images/UK.jpg" >', "UK");
+let uk = new Flag('<img src="images/UK.jpg">', "UK");
 
-let spain = new Flag('<img src="images/spain.jpg" >', "Spain");
+let spain = new Flag('<img src="images/spain.jpg">', "Spain");
 
-let japan = new Flag('<img src="images/japan.jpg" >', "Japan");
+let japan = new Flag('<img src="images/japan.jpg">', "Japan");
 
-let us = new Flag('<img src="images/us.jpg" >',"US" );
+let us = new Flag('<img src="images/us.jpg">',"US" );
 
-let jamaica = new Flag('<img src="images/Jamaica.jpg" >',"Jamaica" );
+let jamaica = new Flag('<img src="images/Jamaica.jpg">',"Jamaica" );
 
-let nigeria = new Flag('<img src="images/nigeria.jpg" >',"Nigeria" );
+let nigeria = new Flag('<img src="images/nigeria.jpg">',"Nigeria" );
 
-let afghanistan = new Flag('<img src="images/afghanistan.jpg" >',"Afghanistan" );
+let afghanistan = new Flag('<img src="images/afghanistan.jpg">',"Afghanistan" );
 
-let angola = new Flag('<img src="images/Angola.jpg" >',"Angola" );
+let angola = new Flag('<img src="images/Angola.jpg">',"Angola" );
 
-let antigua = new Flag('<img src="images/Antigua.jpg" >',"Antigua" );
+let antigua = new Flag('<img src="images/Antigua.jpg">',"Antigua" );
 
-let argentina = new Flag('<img src="images/Argentina.jpg" >',"Argentina" );
+let argentina = new Flag('<img src="images/Argentina.jpg">',"Argentina" );
 
-let armenia = new Flag('<img src="images/Armenia.jpg" >',"Armenia" );
+let armenia = new Flag('<img src="images/Armenia.jpg">',"Armenia" );
 
-let australia = new Flag('<img src="images/Australia.jpg" >',"Australia" );
+let australia = new Flag('<img src="images/Australia.jpg">',"Australia" );
 
-let austria = new Flag('<img src="images/Austria.jpg" >',"Austria" );
+let austria = new Flag('<img src="images/Austria.jpg">',"Austria" );
 
-let azerbaijan = new Flag('<img src="images/Azerbaijan.jpg" >',"Azerbaijan" );
+let azerbaijan = new Flag('<img src="images/Azerbaijan.jpg">',"Azerbaijan" );
 
-var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, angola, antigua, argentina, armenia, australia, austria, azerbaijan];
+let bahamas = new Flag('<img src="images/bahamas.jpg">',"Bahamas" );
+
+let bahrain = new Flag('<img src="images/bahrain.jpg">',"Bahrain" );
+
+let bangladesh = new Flag('<img src="images/bangladesh.jpg">',"Bangladesh" );
+
+let barbados = new Flag('<img src="images/barbados.jpg">',"Barbados" );
+
+let belarus = new Flag('<img src="images/belarus.jpg">',"Belarus" );
+
+let belgium = new Flag('<img src="images/belgium.jpg">',"Belgium" );
+
+let belize = new Flag('<img src="images/belize.jpg">',"Belize" );
+
+let benin = new Flag('<img src="images/benin.jpg">',"Benin" );
+
+let bhutan = new Flag('<img src="images/bhutan.jpg">',"Bhutan" );
+
+let bolivia = new Flag('<img src="images/bolivia.jpg">',"Bolivia" );
+
+let bosnia = new Flag('<img src="images/bosnia.jpg">',"Bosnia" );
+
+// let  = new Flag('<img src="images/belize.jpg">',"Belize" );
+
+var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, angola, antigua, argentina, armenia, australia, austria, azerbaijan, bahamas, bahrain, bangladesh, barbados, belarus, belgium, belize, benin, bhutan, bolivia, bosnia];
 
 
   function getFlag(allFlags){
