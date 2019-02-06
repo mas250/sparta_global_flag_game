@@ -5,6 +5,9 @@ $(document).ready(function() {
   var hardGrid = [];
   var score = "0";
   var timeLeft = 30;
+  var wrongSound = new Audio("./sounds/wrong.mp3");
+  var newGameSound = new Audio("./sounds/start.mp3");
+
   var gameTime = setInterval(function(){
     document.getElementById("progressBar").value = 30 - timeLeft;
     timeLeft -= 1;
@@ -31,18 +34,20 @@ $(document).ready(function() {
       // if (flagData[0].contains(this.innerHTML) ){
 
       //logic for correct anwser
-      alert("correct!");
+      // alert("correct!");
+      newGameSound.play();
       score = eval(score + 1);
       $(".score").text("score = " + score);
       clearGrid();
-      hardGrid = []
+      // hardGrid = []
       hardGame();
     }
 
     else {
       //logic for incorrect anwser
       lives = lives - 1;
-      alert("wrong!");
+      wrongSound.play();
+      // alert("wrong!");
       clearGrid();
       if( lives != 0){
 
