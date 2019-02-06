@@ -2,6 +2,23 @@ $(document).ready(function() {
   var answer = "";
   var currentFlag = "";
   var score = "0";
+  var timeLeft = 30;
+  var gameTime = setInterval(function(){
+    document.getElementById("progressBar").value = 30 - timeLeft;
+    timeLeft -= 1;
+
+    if (timeLeft <= 0) {
+      clearInterval(gameTime);
+    }
+    if(timeLeft == 0){
+      clearInterval(gameTime);
+      alert("time up!");
+      alert("Game Over!")
+      alert("you scored: " + score + " points!");
+      window.location= "intro.html"
+    }
+
+  }, 1000);
 
   var grid =  $(".answer_grid").on("click", function(event){ //create  anwser grid and listen for events
 
@@ -20,15 +37,16 @@ $(document).ready(function() {
       lives = lives - 1;
       alert("wrong!");
       clearGrid();
-      if( lives != 0){
+      if( lives == 0){
+        alert("Game Over!");
+        alert("you scored: " + score + " points!");
+        window.location= "intro.html";
 
-        newGame();
       }
       //else condition
       //all lives lost: clear screen and display loosing message
       else{
-      alert("you lose!")
-      window.location= "intro.html"
+      newGame();
       }
       //
     }

@@ -4,6 +4,24 @@ $(document).ready(function() {
   var currentFlag = "";
   var hardGrid = [];
   var score = "0";
+  var timeLeft = 30;
+  var gameTime = setInterval(function(){
+    document.getElementById("progressBar").value = 30 - timeLeft;
+    timeLeft -= 1;
+
+    if (timeLeft <= 0) {
+      clearInterval(gameTime);
+    }
+    if(timeLeft == 0){
+      clearInterval(gameTime);
+      alert("time up!");
+      alert("Game Over!")
+      alert("you scored: " + score + " points!");
+      window.location= "intro.html"
+    }
+
+  }, 1000);
+
   var grid =  $(".answer_grid").on("click", function(event){ //create  anwser grid and listen for events
     // answer = this.innerHTML;  //clicking on the table submits it as an anwser
 
@@ -33,8 +51,9 @@ $(document).ready(function() {
       //else condition
       //all lives lost: clear screen and display loosing message
       else{
-      alert("you lose!")
-      window.location= "intro.html"
+        alert("Game Over!")
+        alert("you scored: " + score + " points!");
+        window.location= "intro.html";
       }
       //
     }
