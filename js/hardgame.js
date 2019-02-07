@@ -2,7 +2,6 @@ $(document).ready(function() {
 
   var answer = "";
   var currentFlag = "";
-  var hardGrid = [];
   var score = "0";
   var timeLeft = 30;
   var wrongSound = new Audio("./sounds/wrong.mp3");
@@ -34,7 +33,7 @@ $(document).ready(function() {
       score = eval(score + 1);
       $(".score").text("score = " + score);
       clearGrid();
-      // hardGrid = []
+
       hardGame();
     }
 
@@ -141,7 +140,24 @@ let central_african_republic = new Flag('<img src="images/central_african_republ
 
 let chad = new Flag('<img src="images/chad.jpg">',"Chad" );
 
-var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, angola, antigua, argentina, armenia, australia, austria, azerbaijan, bahamas, bahrain, bangladesh, barbados, belarus, belgium, belize, benin, bhutan, bolivia, bosnia, botswana, brazil, brunei, bulgaria, burkina_faso, burma, cambodia, cameroon, canada, cape_verde, central_african_republic, chad];
+let chile = new Flag('<img src="images/chile.jpg">',"Chile" );
+
+let china = new Flag('<img src="images/china.jpg">',"China" );
+
+let colombia = new Flag('<img src="images/colombia.jpg">',"colombia" );
+
+let comoros = new Flag('<img src="images/comoros.jpg">',"Comoros" );
+
+let congo = new Flag('<img src="images/congo.jpg">',"Congo" );
+
+let cuba = new Flag('<img src="images/cuba.jpg">',"Cuba" );
+
+let cyprus = new Flag('<img src="images/cyprus.jpg">',"Cyprus" );
+
+let ivory_coast = new Flag('<img src="images/ivory_coast.jpg">',"Ivory Coast" );
+
+
+var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, angola, antigua, argentina, armenia, australia, austria, azerbaijan, bahamas, bahrain, bangladesh, barbados, belarus, belgium, belize, benin, bhutan, bolivia, bosnia, botswana, brazil, brunei, bulgaria, burkina_faso, burma, cambodia, cameroon, canada, cape_verde, central_african_republic, chad, chile, china, colombia, comoros, congo, cuba, cyprus, ivory_coast];
 
 
   function getFlag(allFlags){
@@ -180,7 +196,7 @@ var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, ang
 
     for (var count = 0; count < grid.length -1; count++) { //populate anwser grid
       grid[count].innerHTML = allFlags[count].flagLink();
-      hardGrid.push(allFlags[count].flagName());
+
     }
     getFlag(allFlags);
 
@@ -191,8 +207,7 @@ var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, ang
        if (grid[i].innerHTML == ""){
          grid[i].innerHTML = flagData[0];
        }
- }
-
+   }
 
   }
   hardGame();

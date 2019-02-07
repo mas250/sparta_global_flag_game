@@ -142,9 +142,26 @@ let cape_verde = new Flag('<img src="images/cape_verde.jpg">',"Cape Verde" );
 let central_african_republic = new Flag('<img src="images/central_african_republic.jpg">',"Central African Republic" );
 
 let chad = new Flag('<img src="images/chad.jpg">',"Chad" );
+
+let chile = new Flag('<img src="images/chile.jpg">',"Chile" );
+
+let china = new Flag('<img src="images/china.jpg">',"China" );
+
+let colombia = new Flag('<img src="images/colombia.jpg">',"colombia" );
+
+let comoros = new Flag('<img src="images/comoros.jpg">',"Comoros" );
+
+let congo = new Flag('<img src="images/congo.jpg">',"Congo" );
+
+let cuba = new Flag('<img src="images/cuba.jpg">',"Cuba" );
+
+let cyprus = new Flag('<img src="images/cyprus.jpg">',"Cyprus" );
+
+let ivory_coast = new Flag('<img src="images/ivory_coast.jpg">',"Ivory Coast" );
+
 // let  = new Flag('<img src="images/belize.jpg">',"Belize" );
 
-var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, angola, antigua, argentina, armenia, australia, austria, azerbaijan, bahamas, bahrain, bangladesh, barbados, belarus, belgium, belize, benin, bhutan, bolivia, bosnia, botswana, brazil, brunei, bulgaria, burkina_faso, burma, cambodia, cameroon, canada, cape_verde, central_african_republic, chad];
+var allFlags = [uk, spain, japan, france, us, jamaica, nigeria, afghanistan, angola, antigua, argentina, armenia, australia, austria, azerbaijan, bahamas, bahrain, bangladesh, barbados, belarus, belgium, belize, benin, bhutan, bolivia, bosnia, botswana, brazil, brunei, bulgaria, burkina_faso, burma, cambodia, cameroon, canada, cape_verde, central_african_republic, chad, chile, china, colombia, comoros, congo, cuba, cyprus, ivory_coast];
 
 
   function getFlag(allFlags){
