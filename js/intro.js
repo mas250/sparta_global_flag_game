@@ -6,4 +6,7 @@ $(document).ready(function(){
     $('#hard').click(function(){
        window.location= "hardgame.html"
     });
+    $('#extreme').click(function(){
+       window.location= "extreme.html"
+    });
   });
