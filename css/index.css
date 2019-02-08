@@ -1,0 +1,27 @@
+button {
+	background-color: white;
+	margin: 5px;
+	border-radius: 50px;
+}
+
+table {
+  margin: 0 auto;
+  border-radius:10px;
+}
+td {
+  /* border: 1px solid black; */
+  width: 300px;
+  height: 200px;
+  text-align: center;
+  font-size: 4em;
+}
+
+td.answer_grid:hover{
+	background-color: grey;
+}
+
+
+body{
+	background-color: black;
+	color:silver;
+}
